@@ -6,9 +6,10 @@
 function countWords() {
   // your code here
   // call printData
-  let words = document.getElementById("text-area").value;
-  let wordCount = words.split(" ").length;
-  printData(wordCount, "wordCountInput");
+  let words = document.getElementById("text-area").value.split(" ");
+  // remove all empty strings
+  words = words.filter(word => word !== "");
+  printData(words.length, "wordCountInput");
 }
 
 function findWords() {
@@ -16,8 +17,8 @@ function findWords() {
   // remainder of your code follows
   // call printData
 
-  let words = document.getElementById("text-area").value;
-  words = words.split(" ");
+  let words = document.getElementById("text-area").value.split(" ");
+  words = words.filter(word => word !== "");
   let theWordToFind = document.getElementById("findWordInput").value;
   let foundWords = [];
   words.forEach(word => {
@@ -31,5 +32,19 @@ function findWords() {
 
 // change param1 and param2 to identifiers that make sense
 function printData(param1, param2) {
-  document.getElementById(param2).value = param1;
+  if (typeof param1 === "number") {
+    if(param1 <= 1) {
+      document.getElementById(param2).value = param1 + " word";
+    }
+    else{
+      document.getElementById(param2).value = param1 + " words";
+    }
+  }else if(typeof param1 === "object") {
+    if(param1.length <= 1) {
+      document.getElementById(param2).value = param1.length + " instance";
+    }
+    else{
+      document.getElementById(param2).value = param1.length + " instances";
+    }
+  }
 }
