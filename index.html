@@ -18,7 +18,7 @@
     <div class="container">
       <label for="text-area" class="form-label">Type text in field below</label>
       <textarea id="text-area" class="form-control"></textarea>
-      <button id="countBtn" class="btn btn-primary">Get Word Count</button>
+      <button id="countBtn" class="btn btn-primary" onClick="countWords()">Get Word Count</button>
       <input
         id="wordCountInput"
         class="form-control"
@@ -27,7 +27,7 @@
       />
       <label for="findWordInput" class="form-label">Type word to find</label>
       <input id="findWordInput" class="form-control" />
-      <button id="findBtn" class="btn btn-warning">
+      <button id="findBtn" class="btn btn-warning" onClick="findWords()">
         Get Chosen Word Count
       </button>
       <input

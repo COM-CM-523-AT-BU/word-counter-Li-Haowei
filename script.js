@@ -6,15 +6,30 @@
 function countWords() {
   // your code here
   // call printData
+  let words = document.getElementById("text-area").value;
+  let wordCount = words.split(" ").length;
+  printData(wordCount, "wordCountInput");
 }
 
 function findWords() {
   // put your local variable for the empty array here
   // remainder of your code follows
   // call printData
+
+  let words = document.getElementById("text-area").value;
+  words = words.split(" ");
+  let theWordToFind = document.getElementById("findWordInput").value;
+  let foundWords = [];
+  words.forEach(word => {
+    // if word contains theWordToFind
+    if (word.includes(theWordToFind)) {
+      foundWords.push(word);
+    }
+  });
+  printData(foundWords, "wordFoundInput");
 }
 
 // change param1 and param2 to identifiers that make sense
 function printData(param1, param2) {
-  // your code here... one line!
+  document.getElementById(param2).value = param1;
 }
