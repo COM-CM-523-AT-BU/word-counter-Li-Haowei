@@ -12,6 +12,22 @@ function countWords() {
   printData(words.length, "wordCountInput");
 }
 
+function findWords1() {
+  // this version finds partial words
+
+  let words = document.getElementById("text-area").value.split(" ");
+  words = words.filter(word => word !== "");
+  let theWordToFind = document.getElementById("findWordInput").value;
+  let foundWords = [];
+  words.forEach(word => {
+    // if word contains theWordToFind
+    if (word.includes(theWordToFind)) {
+      foundWords.push(word);
+    }
+  });
+  printData(foundWords, "wordFoundInput");
+}
+
 function findWords() {
   // put your local variable for the empty array here
   // remainder of your code follows
@@ -23,7 +39,7 @@ function findWords() {
   let foundWords = [];
   words.forEach(word => {
     // if word contains theWordToFind
-    if (word.includes(theWordToFind)) {
+    if (word == theWordToFind) {
       foundWords.push(word);
     }
   });
